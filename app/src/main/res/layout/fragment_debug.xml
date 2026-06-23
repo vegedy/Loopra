@@ -4,15 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_dark"
     tools:context=".ui.debug.DebugFragment">
 
+    <!-- Code Preview with instruction pointer marker -->
     <TextView
-        android:id="@+id/text_placeholder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/debug_placeholder"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/text_code_preview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/surface_dark"
+        android:fontFamily="monospace"
+        android:padding="12dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/terminal_text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/label_tape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Tape header -->
+    <TextView
+        android:id="@+id/label_tape"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:background="@color/surface_variant_dark"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:text="TAPE"
+        android:textColor="@color/neon_cyan"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/recycler_tape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tape cells (horizontal RecyclerView) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_tape"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/surface_dark"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/label_output"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_tape_cell" />
+
+    <!-- Output header -->
+    <TextView
+        android:id="@+id/label_output"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:background="@color/surface_variant_dark"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:text="@string/editor_output_label"
+        android:textColor="@color/neon_cyan"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/text_output"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Output -->
+    <TextView
+        android:id="@+id/text_output"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/terminal_bg"
+        android:fontFamily="monospace"
+        android:padding="8dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/terminal_text"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/linear_controls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Controls -->
+    <LinearLayout
+        android:id="@+id/linear_controls"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/surface_dark"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_step"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:text="@string/action_step" />
+
+        <Button
+            android:id="@+id/button_continue"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="4dp"
+            android:layout_weight="1"
+            android:text="@string/action_continue" />
+
+        <Button
+            android:id="@+id/button_stop"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:text="@string/action_stop" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
