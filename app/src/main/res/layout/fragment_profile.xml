@@ -1,18 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_dark"
     tools:context=".ui.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/text_placeholder"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/profile_placeholder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="16dp">
+
+        <!-- Level Badge -->
+        <TextView
+            android:id="@+id/text_level_badge"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_level_badge"
+            android:gravity="center"
+            android:textColor="@color/neon_cyan"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_level_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="LEVEL"
+            android:textColor="@color/disabled"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@id/text_level_badge"
+            app:layout_constraintStart_toStartOf="@id/text_level_badge"
+            app:layout_constraintTop_toBottomOf="@id/text_level_badge" />
+
+        <!-- XP Bar -->
+        <TextView
+            android:id="@+id/text_xp_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="EXPERIENCE"
+            android:textColor="@color/disabled"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_level_label" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seek_xp"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="4dp"
+            android:max="200"
+            android:progressTint="@color/neon_green"
+            android:progressBackgroundTint="@color/surface_variant_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_xp_label" />
+
+        <TextView
+            android:id="@+id/text_xp_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/disabled"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seek_xp" />
+
+        <!-- Streak -->
+        <TextView
+            android:id="@+id/text_streak_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="STREAK"
+            android:textColor="@color/disabled"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_xp_detail" />
+
+        <TextView
+            android:id="@+id/text_streak_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/neon_amber"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_streak_label" />
+
+        <TextView
+            android:id="@+id/text_streak_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="days"
+            android:textColor="@color/disabled"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/text_streak_value"
+            app:layout_constraintStart_toEndOf="@id/text_streak_value" />
+
+        <!-- Stats -->
+        <TextView
+            android:id="@+id/text_stats_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="STATISTICS"
+            android:textColor="@color/disabled"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_streak_value" />
+
+        <TextView
+            android:id="@+id/text_scripts_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/text_challenges_count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_stats_label" />
+
+        <TextView
+            android:id="@+id/text_challenges_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/text_debug_count"
+            app:layout_constraintStart_toEndOf="@id/text_scripts_count"
+            app:layout_constraintTop_toBottomOf="@id/text_stats_label" />
+
+        <TextView
+            android:id="@+id/text_debug_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_challenges_count"
+            app:layout_constraintTop_toBottomOf="@id/text_stats_label" />
+
+        <!-- Badges -->
+        <TextView
+            android:id="@+id/text_badges_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="BADGES"
+            android:textColor="@color/disabled"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_scripts_count" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_badges"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_badges_label" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
