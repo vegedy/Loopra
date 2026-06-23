@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Base -->
+    <color name="black">#FF0D0D0D</color>
+    <color name="white">#FFF5F5F5</color>
+
+    <!-- Dark theme -->
+    <color name="background_dark">#FF121218</color>
+    <color name="surface_dark">#FF1A1A24</color>
+    <color name="surface_variant_dark">#FF24243A</color>
+
+    <!-- Neon accents -->
+    <color name="neon_cyan">#FF00E5FF</color>
+    <color name="neon_magenta">#FFFF00AA</color>
+    <color name="neon_green">#FF00FF88</color>
+    <color name="neon_amber">#FFFFAA00</color>
+
+    <!-- Primary / Secondary -->
+    <color name="primary">#FF00E5FF</color>
+    <color name="primary_variant">#FF00B8D4</color>
+    <color name="secondary">#FFFF00AA</color>
+    <color name="secondary_variant">#FFCC0088</color>
+
+    <!-- Semantic -->
+    <color name="error">#FFFF1744</color>
+    <color name="success">#FF00FF88</color>
+    <color name="warning">#FFFFAA00</color>
+
+    <!-- Terminal -->
+    <color name="terminal_bg">#FF0A0A0F</color>
+    <color name="terminal_text">#FF00FF88</color>
+    <color name="terminal_cursor">#FF00E5FF</color>
+
+    <!-- Misc -->
+    <color name="divider">#33FFFFFF</color>
+    <color name="disabled">#66FFFFFF</color>
 </resources>

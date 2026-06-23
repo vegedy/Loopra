@@ -3,6 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="de.benitozenz.loopra.MainActivity">
     <item
+        android:id="@+id/action_challenges"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:orderInCategory="50"
+        android:title="@string/challenges_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:orderInCategory="60"
+        android:title="@string/profile_title"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
