@@ -5,7 +5,7 @@ Brainfuck-Studio App für Android. Retro-modern, lokal, gamifiziert.
 
 ## Erledigt
 
-### Phase 1 — Demo-Bereinigung + NavGraph (TODO abgeschlossen)
+### Phase 1 — Demo-Bereinigung + NavGraph
 - [x] FirstFragment.kt gelöscht
 - [x] SecondFragment.kt gelöscht
 - [x] fragment_first.xml gelöscht
@@ -29,26 +29,41 @@ Brainfuck-Studio App für Android. Retro-modern, lokal, gamifiziert.
 - [x] Unit-Tests für Core
 
 ### Phase 4 — Datenhaltung
-- [x] Room-Datenbank + Entities + DAOs
-- [x] Repositories
+- [x] Room-Datenbank + Entities + DAOs (Script, Challenge, ChallengeProgress, UserProgress)
+- [x] Repositories (Script, Challenge, Progress)
 
 ### Phase 5 — UI Screens
 - [x] ScriptLibraryFragment + ViewModel + Layout
-- [x] EditorFragment + ViewModel + Layout
+- [x] EditorFragment + ViewModel mit Run-Output + Autosave
+- [x] DebugFragment + ViewModel + Tape-Ansicht (horizontal RecyclerView)
+- [x] ChallengeListFragment + ViewModel + Adapter
+- [x] ChallengeDetailFragment + ViewModel + Test-Auswertung
+- [x] ProfileFragment + ViewModel + Gamification-Display (Level, XP, Streak, Badges)
+- [x] SettingsFragment + ViewModel (MaxSteps, TapeSize, Clear Data, About)
 - [x] Navigation verdrahtet
 
-## Offene TODOs
+### Phase 6 — Gamification
+- [x] XP + Level (200 XP / Level)
+- [x] Sterne-System (≤optimal=Gold, ≤good=Silber, sonst Bronze)
+- [x] 8 Badges (First Script, Script Collector, Challenge Novice/Master, Debugger, On Fire, Unstoppable, Level 5)
+- [x] Streak-Tracking
+- [x] Stats (Scripts, Challenges, Steps)
 
-### Phase 2 (nächster Agentenlauf)
-- [ ] DebugFragment + ViewModel + Tape-Ansicht
-- [ ] ChallengeListFragment + ViewModel
-- [ ] ChallengeDetailFragment + ViewModel + Test-Auswertung
-- [ ] ProfileFragment + ViewModel + Gamification-Display
-- [ ] SettingsFragment + ViewModel
-- [ ] Gamification-Engine (XP, Badges, Streaks)
-- [ ] Retro-modernes Finetuning (Drawables, Themes, Fonts)
-- [ ] Tablet-Adaptive-Layouts (w600dp, w1240dp)
-- [ ] Launcher-Icon ersetzen
+### Phase 7 — Tablet + Finetuning
+- [x] w600dp-Layouts: Editor (Code+Output nebeneinander)
+- [x] w600dp-Layouts: Debug (Code+Tape+Output+Controls nebeneinander)
+- [x] w600dp-Layouts: ChallengeDetail (Description+Code nebeneinander)
+- [x] Launcher-Icon: BF-Tape-Symbol mit Neon-Akzenten
+
+## Offene TODOs (nice-to-have)
+- [ ] w1240dp-Layouts für große Tablets
+- [ ] Splash-Screen
+- [ ] Launcher-Icon als adaptive icon (monochrome)
+- [ ] Eigene Schriftart (Retro-Monospace)
+- [ ] Editor Syntax-Highlighting (einfach: BF-Befehle farbig)
+- [ ] Undo/Redo im Editor
+- [ ] Export/Import von Scripts
+- [ ] Autocomplete für Klammern im Editor
 
 ## Architektur-Entscheidungen
 - Single Activity + Navigation Component
@@ -61,12 +76,12 @@ Brainfuck-Studio App für Android. Retro-modern, lokal, gamifiziert.
 - Toolbar global in MainActivity
 
 ## Bekannte Probleme
-- keine
+- w600dp-Layouts mit RecyclerView brauchen `xmlns:app` (gefixed)
+- keine weiteren bekannten Probleme
 
-## Nächste Schritte (Priorität)
-1. DebugFragment mit Tape-Ansicht
-2. Challenges in DB seeden + ChallengeList/Detail
-3. Gamification-Layer
-4. Profile/Settings
-5. Tablet-Layouts
-6. Visuelles Finetuning
+## Nächste Schritte (optional)
+1. Splash-Screen und Animation
+2. Eigene Fonts (z.B. JetBrains Mono)
+3. Syntax-Highlighting im Editor
+4. Undo/Redo
+5. Export/Import
